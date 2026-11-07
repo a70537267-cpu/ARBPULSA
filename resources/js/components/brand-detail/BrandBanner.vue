@@ -8,7 +8,7 @@ defineProps<{
 
 <template>
     <div
-        class="relative h-64 overflow-hidden bg-gradient-to-r from-primary/20 to-primary/5"
+        class="relative h-56 overflow-hidden bg-gradient-to-br from-blue-950 via-slate-900 to-violet-950 sm:h-72"
     >
         <img
             v-if="brand.banner"
@@ -19,16 +19,16 @@ defineProps<{
             fetchpriority="high"
         />
         <div
-            class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"
+            class="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/30 to-transparent"
         ></div>
 
         <!-- Brand Info Overlay -->
-        <div class="absolute right-0 bottom-0 left-0 p-6">
+        <div class="absolute right-0 bottom-0 left-0 p-4 sm:p-6">
             <div class="mx-auto max-w-5xl">
-                <div class="flex items-end gap-4">
+                <div class="flex items-end gap-3 sm:gap-4">
                     <!-- Brand Logo -->
                     <div
-                        class="h-20 w-20 overflow-hidden rounded-lg border-4 border-background bg-card shadow-lg"
+                        class="h-16 w-16 shrink-0 overflow-hidden rounded-2xl border-2 border-white/70 bg-card shadow-xl sm:h-20 sm:w-20"
                     >
                         <img
                             v-if="brand.image"
@@ -41,7 +41,7 @@ defineProps<{
 
                     <!-- Brand Name & Features -->
                     <div class="flex-1">
-                        <h1 class="mb-2 text-2xl font-bold text-foreground">
+                        <h1 class="mb-2 text-xl font-extrabold text-white sm:text-2xl">
                             {{ brand.name }}
                         </h1>
                         <div class="flex flex-wrap gap-2">
