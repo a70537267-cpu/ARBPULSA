@@ -13,7 +13,7 @@ const page = usePage();
                 <!-- Company Info -->
                 <div class="md:col-span-2">
                     <h3 class="mb-4 text-lg font-bold text-foreground">
-                        {{ page.props.name }}
+                        {{ page.props.setting?.title || 'ARBPULSA' }}
                     </h3>
                     <p class="mb-4 text-sm text-muted-foreground">
                         {{ page.props.setting.footer_description }}
@@ -43,7 +43,7 @@ const page = usePage();
                 <!-- Quick Links -->
                 <div>
                     <h4 class="mb-4 font-semibold text-foreground">
-                        Quick Links
+                        Tautan
                     </h4>
                     <ul class="space-y-2 text-sm">
                         <li>
@@ -51,7 +51,7 @@ const page = usePage();
                                 :href="home().url"
                                 class="text-muted-foreground transition-colors hover:text-primary"
                             >
-                                Home
+                                Beranda
                             </Link>
                         </li>
                         <li>
@@ -106,8 +106,8 @@ const page = usePage();
                 class="mt-8 border-t border-border/30 pt-8 text-center text-sm text-muted-foreground"
             >
                 <p>
-                    &copy; {{ new Date().getFullYear() }} GameStore. All rights
-                    reserved.
+                    &copy; {{ new Date().getFullYear() }} {{ page.props.setting?.title || 'ARBPULSA' }}. Hak
+                    cipta dilindungi.
                 </p>
             </div>
         </div>
