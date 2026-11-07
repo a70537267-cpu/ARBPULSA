@@ -15,7 +15,7 @@ class SettingSeeder extends Seeder
         if (! Setting::first()) {
             Setting::create([
                 'value' => [
-                    'title' => 'TopupWok',
+                    'title' => 'ARBPULSA',
                     'email' => 'support@topupwok.id',
                     'phone' => '+62 812-3456-7890',
                     'logo' => '/favicon.svg',
@@ -23,7 +23,7 @@ class SettingSeeder extends Seeder
                     'favicon' => '/favicon.svg',
                     'privacy_policy' => '<p>GGWP</p>',
                     'terms' => '<p>GGWP</p>',
-                    'footer_description' => 'Platform top up game terpercaya dengan harga terjangkau dan proses cepat. Layanan 24/7 untuk kepuasan pelanggan.',
+                    'footer_description' => 'ARBPULSA — layanan top up game dan produk digital dengan proses mudah, cepat, dan aman.',
                     'cs' => 'https://wa.me/6281234567890',
                     'template_checkout' => '🎉 Terima kasih telah melakukan pembelian di {app_name}!
 🎮 Berikut adalah detail pesanan Anda:
