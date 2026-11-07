@@ -33,7 +33,7 @@ const { confirm } = useSwal();
 const { appearance, updateAppearance } = useAppearance();
 
 // Use setting title or default
-const appName = page.props.setting?.title || 'GameStore';
+const appName = page.props.setting?.title || 'ARBPULSA';
 const appLogo = page.props.setting?.logo;
 
 withDefaults(defineProps<Props>(), {
