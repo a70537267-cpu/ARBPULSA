@@ -54,18 +54,38 @@ const appUrl = page.props.app_url;
         </template>
         <!-- Main Content -->
         <main class="mx-auto w-full max-w-7xl flex-1 px-4 py-8" v-else>
+            <!-- Welcome / Brand Intro -->
+            <section class="relative mb-6 overflow-hidden rounded-2xl border border-primary/20 bg-gradient-to-br from-blue-950 via-slate-900 to-violet-950 px-5 py-6 shadow-lg sm:px-8 sm:py-8">
+                <div class="pointer-events-none absolute -right-12 -top-16 h-48 w-48 rounded-full bg-blue-500/20 blur-3xl"></div>
+                <div class="pointer-events-none absolute -bottom-20 left-1/3 h-40 w-40 rounded-full bg-violet-500/20 blur-3xl"></div>
+                <div class="relative max-w-2xl">
+                    <span class="mb-3 inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold tracking-wide text-blue-100">
+                        TOP UP GAME & PRODUK DIGITAL
+                    </span>
+                    <h1 class="text-2xl font-extrabold tracking-tight text-white sm:text-3xl">
+                        Top Up Mudah, Cepat, dan Aman
+                    </h1>
+                    <p class="mt-2 max-w-xl text-sm leading-6 text-slate-200 sm:text-base">
+                        Pilih game atau produk digital favoritmu, masukkan ID tujuan, lalu lanjutkan pesanan dengan praktis.
+                    </p>
+                </div>
+            </section>
+
             <!-- Hero Banner -->
             <HeroBanner
-                class="mb-8"
+                class="mb-10 overflow-hidden rounded-2xl shadow-md"
                 :slides="sliders"
                 :autoplay="true"
                 :interval="50000"
             />
 
             <!-- Categories Section -->
-            <section class="mb-8">
-                <div class="mb-4">
-                    <h2 class="text-xl font-bold text-foreground">Kategori</h2>
+            <section class="mb-10">
+                <div class="mb-4 flex items-end justify-between gap-3">
+                    <div>
+                        <p class="text-xs font-semibold uppercase tracking-wider text-primary">Jelajahi</p>
+                        <h2 class="text-xl font-bold text-foreground">Kategori</h2>
+                    </div>
                 </div>
                 <div class="flex gap-3 overflow-x-auto pb-2">
                     <Link
@@ -75,7 +95,7 @@ const appUrl = page.props.app_url;
                         preserve-scroll
                     >
                         <button
-                            class="flex min-w-[140px] flex-col items-center gap-2 rounded-lg border border-border/50 bg-card p-4 transition-all hover:scale-105 hover:border-primary/50 hover:shadow-md"
+                            class="flex min-w-[140px] flex-col items-center gap-2 rounded-xl border border-border/50 bg-card p-4 shadow-sm transition-all hover:-translate-y-1 hover:border-primary/50 hover:shadow-lg"
                         >
                             <img
                                 v-if="category.image"
@@ -97,8 +117,9 @@ const appUrl = page.props.app_url;
             </section>
 
             <!-- Featured Brands Section -->
-            <section class="mb-8" v-if="featured_brands.length > 0">
+            <section class="mb-10" v-if="featured_brands.length > 0">
                 <div class="mb-4">
+                    <p class="text-xs font-semibold uppercase tracking-wider text-primary">Pilihan terbaik</p>
                     <h2 class="text-xl font-bold text-foreground">
                         Produk Unggulan
                     </h2>
@@ -117,6 +138,7 @@ const appUrl = page.props.app_url;
             <!-- Brands Section -->
             <section>
                 <div class="mb-6">
+                    <p class="text-xs font-semibold uppercase tracking-wider text-primary">Temukan favoritmu</p>
                     <h2 class="text-xl font-bold text-foreground">
                         Produk Populer
                     </h2>
