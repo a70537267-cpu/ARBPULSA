@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Check } from 'lucide-vue-next';
 import { formatCurrency } from '@/lib/utils';
 
 interface ManualBank {
@@ -36,7 +37,7 @@ const handlePaymentTypeChange = (type: 'manual' | 'automatic') => {
 </script>
 
 <template>
-    <section class="rounded-lg border border-border/50 bg-card p-6 shadow-sm">
+    <section class="rounded-2xl border border-border/50 bg-card p-4 shadow-sm sm:p-6">
         <h2
             class="mb-4 flex items-center gap-2 text-lg font-bold text-foreground"
         >
@@ -50,7 +51,7 @@ const handlePaymentTypeChange = (type: 'manual' | 'automatic') => {
         <!-- Payment Type Selector -->
         <div class="mb-4 flex gap-2">
             <button
-                class="flex-1 rounded-lg border-2 px-4 py-2 text-sm font-medium transition-all"
+                class="flex-1 rounded-xl border-2 px-4 py-3 text-sm font-semibold transition-all"
                 :class="
                     paymentType === 'automatic'
                         ? 'border-primary bg-primary/5 text-primary'
@@ -77,11 +78,11 @@ const handlePaymentTypeChange = (type: 'manual' | 'automatic') => {
         <div v-if="paymentType === 'manual'" class="space-y-2">
             <button
                 :key="manualBank.id"
-                class="flex w-full items-center gap-4 rounded-lg border-2 p-4 transition-all"
+                class="flex w-full items-center gap-3 rounded-xl border-2 p-3 transition-all sm:gap-4 sm:p-4"
                 :class="
                     selectedPayment === manualBank.id
-                        ? 'border-primary bg-primary/5'
-                        : 'border-border/50 hover:border-primary/50'
+                        ? 'border-primary bg-primary/10 shadow-sm'
+                        : 'border-border/60 hover:border-primary/50'
                 "
                 @click="emit('update:selectedPayment', manualBank.id as any)"
             >
@@ -104,7 +105,8 @@ const handlePaymentTypeChange = (type: 'manual' | 'automatic') => {
                         {{ manualBank.account_name }}
                     </div>
                 </div>
-                <span class="text-sm font-medium text-emerald-500">
+                <Check v-if="selectedPayment === manualBank.id" class="h-5 w-5 shrink-0 text-primary" />
+                <span class="text-xs font-semibold text-emerald-500 sm:text-sm">
                     Fee: Rp 0
                 </span>
             </button>
@@ -132,7 +134,8 @@ const handlePaymentTypeChange = (type: 'manual' | 'automatic') => {
                 <span class="flex-1 text-left font-medium text-foreground">
                     {{ method.name }}
                 </span>
-                <span class="text-sm text-muted-foreground">
+                <Check v-if="selectedPayment === method.id" class="h-5 w-5 shrink-0 text-primary" />
+                <span class="text-xs text-muted-foreground sm:text-sm">
                     Fee:
                     {{
                         method.action === 'multiply'
