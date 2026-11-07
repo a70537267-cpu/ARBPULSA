@@ -11,7 +11,7 @@ const props = defineProps<{
 
 <template>
     <div
-        class="group relative overflow-hidden rounded-lg border border-border/50 bg-card shadow-md transition-all duration-300 hover:scale-105 hover:border-primary/50 hover:shadow-xl"
+        class="group relative overflow-hidden rounded-2xl border border-border/50 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-xl"
     >
         <Link
             :href="
@@ -21,12 +21,12 @@ const props = defineProps<{
             "
         >
             <!-- Brand Image -->
-            <div class="relative aspect-[3/4] overflow-hidden bg-muted">
+            <div class="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-muted to-background">
                 <img
                     v-if="brand.image"
                     :src="brand.image"
                     :alt="brand.name"
-                    class="h-full w-full object-cover"
+                    class="h-full w-full object-contain p-3 transition-transform duration-300 group-hover:scale-105"
                     loading="lazy"
                 />
                 <div
@@ -43,13 +43,14 @@ const props = defineProps<{
             </div>
 
             <!-- Brand Info -->
-            <div class="p-4">
+            <div class="flex min-h-[76px] items-center justify-between gap-2 p-3 sm:p-4">
                 <!-- Name -->
                 <h3
-                    class="mb-2 line-clamp-2 text-sm font-semibold text-foreground"
+                    class="line-clamp-2 text-sm font-semibold leading-5 text-foreground"
                 >
                     {{ brand.name }}
                 </h3>
+                <span class="shrink-0 rounded-full bg-primary/10 px-2.5 py-1 text-[10px] font-bold text-primary">PILIH</span>
             </div>
         </Link>
     </div>
