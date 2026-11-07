@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { formatCurrency } from '@/lib/utils';
 import { PPOBProductDataItem } from '@/types/cms/ppob';
-import { ClockIcon } from 'lucide-vue-next';
+import { Check, ClockIcon } from 'lucide-vue-next';
 
 defineProps<{
     products: PPOBProductDataItem[];
@@ -14,7 +14,7 @@ const emit = defineEmits<{
 </script>
 
 <template>
-    <section class="rounded-lg border border-border/50 bg-card p-6 shadow-sm">
+    <section class="rounded-2xl border border-border/50 bg-card p-4 shadow-sm sm:p-6">
         <h2
             class="mb-4 flex items-center gap-2 text-lg font-bold text-foreground"
         >
@@ -32,16 +32,17 @@ const emit = defineEmits<{
             <button
                 v-for="product in products"
                 :key="product.id"
-                class="flex h-full flex-col overflow-hidden rounded-xl border-2 text-left transition-all"
+                class="relative flex h-full flex-col overflow-hidden rounded-xl border-2 text-left transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
                 :class="
                     selectedProduct === product.id
-                        ? 'border-primary bg-primary/5'
-                        : 'border-border/50 hover:border-primary/50'
+                        ? 'border-primary bg-primary/10 shadow-md ring-1 ring-primary/20'
+                        : 'border-border/60 bg-background/40 hover:border-primary/50'
                 "
                 @click="emit('update:selectedProduct', product.id)"
             >
-                <div class="pt-4 pl-4 text-sm font-semibold text-foreground">
+                <div class="flex items-start justify-between gap-2 px-4 pt-4 text-sm font-semibold text-foreground">
                     {{ product.name }}
+                    <Check v-if="selectedProduct === product.id" class="h-4 w-4 shrink-0 text-primary" />
                 </div>
                 <div
                     class="mt-2 flex flex-1 flex-col justify-between text-sm font-bold text-primary"
@@ -66,7 +67,7 @@ const emit = defineEmits<{
                         </div>
                     </div>
                     <div
-                        class="mt-5 flex w-full flex-col gap-2 bg-background p-4 text-xs font-semibold text-foreground"
+                        class="mt-5 flex w-full flex-col gap-2 border-t border-border/40 bg-muted/40 p-3 text-xs font-semibold text-foreground sm:p-4"
                     >
                         <div
                             class="flex items-center gap-2"
