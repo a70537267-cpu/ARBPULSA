@@ -127,7 +127,7 @@ watch(
 
         <!-- Voucher Section -->
         <div
-            class="mt-5 rounded-lg border border-border/50 bg-card p-6 shadow-sm"
+            class="mt-5 rounded-2xl border border-border/50 bg-card p-4 shadow-sm sm:p-6"
         >
             <h3 class="mb-4 text-lg font-bold text-foreground">Kode Voucher</h3>
 
@@ -140,7 +140,7 @@ watch(
                     </div>
                     <Input
                         v-model="voucherCode"
-                        placeholder="Masukkan kode offer"
+                        placeholder="Masukkan kode voucher"
                         class="pl-9"
                         :disabled="!!appliedVoucherCode"
                         @keyup.enter="checkVoucher"
@@ -175,7 +175,7 @@ watch(
             class="mt-5 rounded-lg border border-border/50 bg-card p-6 shadow-sm"
         >
             <h3 class="mb-4 text-lg font-bold text-foreground">
-                Ringkasan Pesanan
+                Ringkasan Pembelian
             </h3>
 
             <div class="space-y-3 text-sm">
