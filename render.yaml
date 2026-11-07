@@ -1,0 +1,59 @@
+# Render Blueprint untuk demo ARBPULSA
+# Database TiDB Cloud Starter dibuat terpisah; isi variabel DB_* saat deploy.
+services:
+  - type: web
+    name: arbpulsa-demo
+    runtime: docker
+    plan: free
+    branch: feature/arbpulsa-branding
+    dockerfilePath: ./Dockerfile.prod
+    healthCheckPath: /up
+    envVars:
+      - key: APP_NAME
+        value: ARBPULSA
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: APP_URL
+        value: https://arbpulsa-demo.onrender.com
+      - key: APP_TIMEZONE
+        value: Asia/Jakarta
+      - key: APP_DISPLAY_TIMEZONE
+        value: Asia/Jakarta
+      - key: APP_KEY
+        generateValue: true
+      - key: PORT
+        value: "80"
+      - key: RUN_MIGRATIONS
+        value: "true"
+      - key: DB_CONNECTION
+        value: mysql
+      - key: DB_PORT
+        value: "4000"
+      - key: DB_CHARSET
+        value: utf8mb4
+      - key: DB_HOST
+        sync: false
+      - key: DB_DATABASE
+        sync: false
+      - key: DB_USERNAME
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: MYSQL_ATTR_SSL_CA
+        value: /etc/ssl/cert.pem
+      - key: CACHE_STORE
+        value: database
+      - key: SESSION_DRIVER
+        value: database
+      - key: QUEUE_CONNECTION
+        value: sync
+      - key: LOG_CHANNEL
+        value: stderr
+      - key: FILESYSTEM_DISK
+        value: local
+      - key: PAYMENT_GATEWAY
+        value: midtrans
+      - key: MIDTRANS_IS_PRODUCTION
+        value: "false"
