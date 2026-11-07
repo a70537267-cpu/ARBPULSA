@@ -19,7 +19,7 @@ const emit = defineEmits<{
 </script>
 
 <template>
-    <section class="rounded-lg border border-border/50 bg-card p-6 shadow-sm">
+    <section class="rounded-2xl border border-border/50 bg-card p-4 shadow-sm sm:p-6">
         <h2
             class="mb-4 flex items-center gap-2 text-lg font-bold text-foreground"
         >
@@ -48,7 +48,7 @@ const emit = defineEmits<{
                     id="phone"
                     :model-value="phone"
                     type="tel"
-                    placeholder="08xxxxxxxxxx"
+                    placeholder="Contoh: 081234567890"
                     class="mt-1"
                     @update:model-value="emit('update:phone', $event)"
                 />
@@ -58,7 +58,7 @@ const emit = defineEmits<{
                 </InputDescription>
             </div>
             <div class="sm:col-span-2">
-                <Label for="email">Email (Optional)</Label>
+                <Label for="email">Email (Opsional)</Label>
                 <Input
                     id="email"
                     :model-value="email"
@@ -69,7 +69,7 @@ const emit = defineEmits<{
                 />
                 <InputError :message="formErrors.email" class="mt-1" />
                 <InputDescription class="sm:col-span-2">
-                    * Kami akan mengirimkan notifikasi transaksi melalui email jika kamu mengisi kolom ini.
+                    * Notifikasi transaksi dapat dikirim ke email ini jika diisi.
                 </InputDescription>
             </div>
         </div>
